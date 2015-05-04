@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "StatusTrackerTest",
+    "Jar": "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+    "Args": [
+    "/home/hadoop/spark/bin/spark-submit",
+    "--deploy-mode","cluster",
+    "--master","yarn-cluster",
+    "--driver-memory","1G",
+    "--executor-memory","1G",
+    "--num-executors","4",
+    "--class","test.StatusTrackerTest",
+    "s3://emodb-etl-us-east-1/cdowns-test/jars/spark-hello.jar"
+    ],
+    "ActionOnFailure": "CONTINUE",
+    "Type": "CUSTOM_JAR",
+    "Properties": "string"
+  }
+]

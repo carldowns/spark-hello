@@ -1,0 +1,21 @@
+[
+  {
+    "Name": "Program15-test-config-setup",
+    "Jar": "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+    "Args": [
+    "/home/hadoop/spark/bin/spark-submit",
+    "--deploy-mode","cluster",
+    "--master","yarn-cluster",
+    "--driver-memory","4G",
+    "--executor-memory","4G",
+    "--num-executors","10",
+    "--class","driver.Program15",
+    "s3://emodb-etl-us-east-1/cdowns-test/jars/spark-hello.jar",
+    "s3://emodb-us-east-1/stash/ci/2015-04-30-00-00-00/answer-3m_mpro/*",
+    "s3://emodb-etl-us-east-1/cdowns-test/outputs"
+    ],
+    "ActionOnFailure": "CONTINUE",
+    "Type": "CUSTOM_JAR",
+    "Properties": "string"
+  }
+]

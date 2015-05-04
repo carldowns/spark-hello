@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Program10",
+    "Jar": "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+    "Args": [
+    "/home/hadoop/spark/bin/spark-submit",
+    "--deploy-mode","cluster",
+    "--master","yarn-cluster",
+    "--driver-memory","1G",
+    "--executor-memory","1G",
+    "--num-executors","4",
+    "--class","driver.Program10",
+    "s3://emodb-etl-us-east-1/cdowns-test/jars/spark-hello.jar",
+    "s3://emodb-etl-us-east-1/cdowns-test/outputs",
+    "s3://emodb-us-east-1/stash/ci",
+    "1000"
+    ],
+    "ActionOnFailure": "CONTINUE",
+    "Type": "CUSTOM_JAR",
+    "Properties": "string"
+  }
+]

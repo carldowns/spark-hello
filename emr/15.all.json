@@ -1,0 +1,21 @@
+[
+  {
+    "Name": "Program15-all-tables-10i-8G",
+    "Jar": "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+    "Args": [
+    "/home/hadoop/spark/bin/spark-submit",
+    "--deploy-mode","cluster",
+    "--master","yarn-cluster",
+    "--driver-memory","8G",
+    "--executor-memory","8G",
+    "--num-executors","10",
+    "--class","driver.Program15",
+    "s3://emodb-etl-us-east-1/cdowns-test/jars/spark-hello.jar",
+    "s3://emodb-us-east-1/stash/ci/2015-05-01-00-00-00/*/*",
+    "s3://emodb-etl-us-east-1/cdowns-test/outputs"
+    ],
+    "ActionOnFailure": "CONTINUE",
+    "Type": "CUSTOM_JAR",
+    "Properties": "string"
+  }
+]

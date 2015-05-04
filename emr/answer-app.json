@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "answer-app",
+    "Jar": "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+    "Args": [
+    "/home/hadoop/spark/bin/spark-submit",
+    "--deploy-mode","cluster",
+    "--master","yarn-cluster",
+    "--driver-memory","1G",
+    "--executor-memory","1G",
+    "--num-executors","4",
+    "--class","SparkApp",
+    "s3://emodb-us-east-1/emodbtesting/cdowns-spark/jars/spark-hello.jar",
+    "program1",
+    "s3n://emodb-us-east-1/stash/ci/2015-04-10-00-00-00/answer-app",
+    "s3n://emodb-us-east-1/emodbtesting/cdowns-spark/outputs"
+    ],
+    "ActionOnFailure": "CONTINUE",
+    "Type": "CUSTOM_JAR",
+    "Properties": "string"
+  }
+]
+
